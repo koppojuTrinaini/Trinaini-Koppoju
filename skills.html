@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trinaini Koppoju — Skills Showcase</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --header-bg: #2d3142;
+      --footer-bg: #2d3142;
+      --text-light: #f2f2f2;
+      --muted-text: #c7c7c7;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #ffffffbd;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      width: 100%;
+      background: var(--header-bg);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      color: var(--text-light);
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.8rem;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #cfcfcf;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--header-bg);
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 0;
+        display: none;
+      }
+
+      nav.show {
+        display: flex;
+      }
+    }
+
+    /* ================= MAIN ================= */
+    main {
+      padding: 6rem 2rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5rem;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      width: 100%;
+    }
+
+    /* ================= CARDS (UNCHANGED) ================= */
+    .card {
+      width: 130px;
+      height: 110px;
+      background: #231d1d;
+      border-radius: 16px;
+      box-shadow: 0 0 18px #2d3142;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    .card-content {
+      position: absolute;
+      inset: 4px;
+      background: #1e1e1e;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      color: #f0926a;
+      margin-bottom: 0.3rem;
+    }
+
+    .card p {
+      font-size: 0.75rem;
+      color: #f2f2f2;
+      padding: 0 0.4rem;
+    }
+
+    .card:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 30px #2d3142;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+      color: #2d3142;
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .card:hover .overlay {
+      opacity: 1;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: var(--footer-bg);
+      color: var(--muted-text);
+      padding: 4rem 2rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 3rem;
+    }
+
+    footer h3 {
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    footer p,
+    footer a {
+      color: var(--muted-text);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      text-decoration: none;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 18px;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      font-size: 24px;
+      color: #ffffff;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.85rem;
+      color: #d0d0d0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Trinaini Koppoju</h1>
+    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="project.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="internships.html">Internships</a>
+      <a href="certificates.html">Certifications</a>
+      <a href="textme.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="row">
+      <div class="card">
+        <div class="card-content">
+          <h2>Data Cleaning</h2>
+          <p>Handling missing/duplicate data</p>
+        </div>
+        <div class="overlay">95%</div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>Data Analysis</h2>
+          <p>Pandas, NumPy, Excel, SQL</p>
+        </div>
+        <div class="overlay">90%</div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>Data Visualization</h2>
+          <p>Charts & Dashboards</p>
+        </div>
+        <div class="overlay">88%</div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>Power BI</h2>
+          <p>Interactive Dashboards</p>
+        </div>
+        <div class="overlay">85%</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card">
+        <div class="card-content">
+          <h2>Tableau</h2>
+          <p>Business Intelligence</p>
+        </div>
+        <div class="overlay">87%</div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>SQL</h2>
+          <p>Querying databases</p>
+        </div>
+        <div class="overlay">50%</div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>Python</h2>
+          <p>Pandas, NumPy, Matplotlib</p>
+        </div>
+        <div class="overlay">92%</div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>Excel / Sheets</h2>
+          <p>Quick data handling</p>
+        </div>
+        <div class="overlay">85%</div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>HTML</h2>
+          <p>Structuring web content</p>
+        </div>
+        <div class="overlay">80%</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card">
+        <div class="card-content">
+          <h2>Git & GitHub</h2>
+          <p>Version control & collaboration</p>
+        </div>
+        <div class="overlay">85%</div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>Responsive Design</h2>
+          <p>Mobile, tablet, desktop</p>
+        </div>
+        <div class="overlay">90%</div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>CSS / Bootstrap</h2>
+          <p>Beautiful UI design</p>
+        </div>
+        <div class="overlay">88%</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>About Me</h3>
+        <p>
+          I am Trinaini Koppoju, a Data Science undergraduate passionate about
+          analytics, machine learning, and building real-world solutions.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="project.html">Projects</a></p>
+        <p><a href="skills.html">Skills</a></p>
+        <p><a href="internships.html">Internships</a></p>
+        <p><a href="certificates.html">Certificates</a></p>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>Email: koppojutrinaini@gmail.com</p>
+        <p>Location: Andhra Pradesh, India</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/trinaini-koppoju-265717248/" target="_blank"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/koppojuTrinaini" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Trinaini Koppoju · All Rights Reserved
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("menuToggle").onclick = () => {
+      document.getElementById("navMenu").classList.toggle("show");
+    };
+  </script>
+
+</body>
+
+</html>

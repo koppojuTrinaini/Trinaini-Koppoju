@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certifications | Trinaini Koppoju</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --bg-main: #f4f1ec;          /* warm beige */
+      --bg-soft: #e8e4dc;          /* light sage */
+      --bg-card: #fbfaf7;          /* off white */
+      --accent: #7a8450;           /* olive */
+      --text-main: #3f3f3a;        /* charcoal (not black) */
+      --text-muted: #6b6b63;
+      --footer-bg: #5f6550;        /* dark olive */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, var(--bg-main), var(--bg-soft));
+      color: var(--text-main);
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      background: var(--bg-card);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    header h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-card);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        display: none;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+
+      nav.show {
+        display: flex;
+      }
+    }
+
+    /* ================= HERO ================= */
+    .hero-container {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .text-section {
+      text-align: center;
+    }
+
+    .location-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .destination-title {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .image-section {
+      height: 360px;
+      background: var(--bg-card);
+      border-radius: 16px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .background-image {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* ================= CAROUSEL ================= */
+    .carousel-wrapper {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .carousel-container {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card {
+      flex: 0 0 240px;
+      height: 150px;
+      background: var(--bg-card);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      padding: 10px;
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #f0eee9;
+    }
+
+    .card-content {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 8px;
+      text-align: center;
+      background: rgba(95,101,80,0.85);
+      color: #f7f7f2;
+      font-size: 13px;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: var(--footer-bg);
+      color: #ececdf;
+      padding: 70px 40px 25px;
+      margin-top: 80px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+    }
+
+    footer h3 {
+      color: #f7f7f2;
+      margin-bottom: 15px;
+    }
+
+    footer p, footer a {
+      font-size: 14px;
+      color: #ececdf;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Trinaini Koppoju</h1>
+  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="project.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="internships.html">Internships</a>
+    <a href="certificates.html">Certifications</a>
+    <a href="textme.html">Contact</a>
+  </nav>
+</header>
+
+<main class="hero-container">
+  <section class="text-section">
+    <div class="location-name" id="locationName"></div>
+    <div class="destination-title" id="destinationTitle"></div>
+  </section>
+
+  <section class="image-section">
+    <div class="background-image" id="backgroundImage"></div>
+  </section>
+</main>
+
+<section class="carousel-wrapper">
+  <div class="carousel-container" id="carouselContainer"></div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h3>About</h3>
+      <p>
+        Data Science undergraduate focused on analytics, machine learning,
+        and continuous skill development.
+      </p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="index.html">Home</a></p>
+      <p><a href="project.html">Projects</a></p>
+      <p><a href="skills.html">Skills</a></p>
+      <p><a href="internships.html">Internships</a></p>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <p>Email: koppojutrinaini@gmail.com</p>
+      <p>Location: Andhra Pradesh, India</p>
+      <div class="social-icons" style="justify-content:flex-start;">
+          <a href="https://www.linkedin.com/in/trinaini-koppoju-265717248/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/koppojuTrinaini" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Trinaini Koppoju · All Rights Reserved
+  </div>
+</footer>
+
+<script>
+  const destinations = [
+    { title: 'C Program', location: 'Great Learning', image: 'https://ik.imagekit.io/sjipokfmw/489239448-d6656b6e-1079-4a32-ad56-dcf2fb251cfd.jpg?updatedAt=1760532977443'},
+    { title: 'Joy of Computing Using Python', location: 'NPTEL', image: 'https://ik.imagekit.io/sjipokfmw/Joy%20of%20computing%20using%20python%20COURSE.jpg?updatedAt=1760534383775' },
+    { title: 'Python for Data Science', location: 'AICTE', image: 'https://ik.imagekit.io/sjipokfmw/Python%20for%20datascience%20course.jpg?updatedAt=1760534383817' },
+    { title: 'MongoDB', location: 'Infosys', image: 'https://ik.imagekit.io/sjipokfmw/INFOSYS%20course.jpg?updatedAt=1760534383598'},
+    { title: 'Getting Started with Data', location: 'IBM', image: 'https://ik.imagekit.io/sjipokfmw/IBM%20Course.jpg?updatedAt=1760534383201' },
+    { title: 'AI Skills Passport', location: 'EY and Microsoft', image: 'https://ik.imagekit.io/sjipokfmw/Certificate%20of%20AI%20SKILLS%20Passport%20Course.jpg?updatedAt=1760534382883' },
+    { title: 'Data Visualization & DashBoards with Tableau WorkShop', location: 'A2Z EduLearningHub', image: 'https://ik.imagekit.io/sjipokfmw/WorkShop.jpg?updatedAt=1760534383431'}
+  ];
+
+  const carousel = document.getElementById('carouselContainer');
+  const locationName = document.getElementById('locationName');
+  const destinationTitle = document.getElementById('destinationTitle');
+  const backgroundImage = document.getElementById('backgroundImage');
+
+  destinations.forEach((dest, index) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-image" style="background-image:url(${dest.image})"></div>
+      <div class="card-content">
+        <strong>${dest.title}</strong><br>${dest.location}
+      </div>
+    `;
+    card.onclick = () => setActive(index);
+    carousel.appendChild(card);
+  });
+
+  function setActive(i) {
+    locationName.textContent = destinations[i].location;
+    destinationTitle.textContent = destinations[i].title;
+    backgroundImage.style.backgroundImage = `url(${destinations[i].image})`;
+  }
+
+  setActive(0);
+
+  document.getElementById("menuToggle").onclick = () => {
+    document.getElementById("navMenu").classList.toggle("show");
+  };
+</script>
+
+</body>
+</html>

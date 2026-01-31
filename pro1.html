@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark-Choco</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #2E1A12;
+            color: white;
+            padding-top: 70px;
+        }
+
+        .header,
+        .parent,
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-container img {
+            height: 40px;
+            width: auto;
+        }
+
+        .header h2 {
+            font-size: 1.5em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f4a261;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100vw;
+            height: 400px;
+            /* Adjust height as needed */
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(50, 48, 48, 0.7);
+            /* Black overlay with 50% opacity */
+        }
+
+        .video-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: Black;
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-shadow: 10px 10px 20px rgb(0, 0, 0);
+            width: 600px;
+            /* Corrected */
+        }
+
+        .parent1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: url('cho_bg.jpg') no-repeat center center/cover;
+            /* height: 90vh; */
+            margin-top: 10%;
+            text-align: center;
+        }
+
+        .parent1 h3 {
+            text-align: center;
+            font-size: 25px;
+            margin-top: 1%;
+            border-radius: 20px white;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 10px;
+            margin-top: 40px;
+            border-radius: 20px white;
+            padding: 20px;
+        }
+
+        .content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+            gap: 40px;
+        }
+
+        .content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .content a {
+            text-decoration: none;
+            color: rgb(155, 129, 57);
+        }
+
+        .steps b {
+            color: rgb(155, 129, 57);
+            font-family: fangsong;
+        }
+
+        p {
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.6;
+
+        }
+
+        .content steps {
+            display: flex;
+            text-align: left;
+            align-items: center;
+            flex-direction: center;
+            font-size: 200px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1A0E08;
+            text-align: center;
+            padding: 15px;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 10%;
+            margin-bottom: 20%;
+            align-items: center;
+            justify-content: center;
+            gap: 10%;
+            padding: 20px;
+            width: 100%;
+            background-color: #3B2218;
+        }
+
+        .hexagon {
+            width: 100%;
+            max-width: 40%;
+            height: 20%;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+            margin: 2px 0;
+        }
+
+        .hexagon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures the image fits inside */
+        }
+
+        /* @media (min-width:1000px) {
+            .parent1 {
+                margin-bottom: 10%;
+                margin-top: 0;
+            }
+        } */
+
+
+        @media (min-width: 600px) {
+            .content {
+                flex-direction: row;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .content h3 {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .content p {
+                font-size: 20px;
+                padding-bottom: 10px;
+            }
+
+            .container {
+                flex-direction: column;
+                align-items: center;
+                /* margin-top: 1%; */
+                margin-bottom: 5%;
+                gap: 40px;
+            }
+
+            .content img {
+                max-width: 40%;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .menu-toggle {
+                display: none;
+                /* Hide menu toggle on larger screens */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 10px;
+                border-radius: 5px;
+                width: max-content;
+            }
+
+            .nav-links.active {
+                display: flex;
+                /* Show menu when toggle is clicked */
+            }
+
+            .menu-toggle {
+                display: block;
+                /* Show toggle button only on mobile */
+                background: none;
+                border: none;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+            }
+        }
+    </style>
+
+</head>
+
+<body id="ht">
+
+
+    <nav class="header">
+        <div class="logo-container">
+            <img src="https://github.com/user-attachments/assets/d499b68e-0fbd-4249-9b16-f60be8437cca"
+                alt="ChocoLegacy Logo">
+            <h2>Choco</h2>
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <!-- <a href="#goup">Go Up</a> -->
+        </div>
+    </nav>
+
+    <div class="video-container">
+        <video class="video" autoplay muted loop>
+            <source src="https://videos.pexels.com/video-files/4110110/4110110-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-text" id="goup"> Dark Chocolate...</div>
+    </div>
+
+    <div class="parent1">
+        <h3>A Zoo of Dark Chocolate Flavors—But No Biting!</h3>
+        <div class="content">
+            <img src="https://github.com/user-attachments/assets/ce874ce6-e1cb-4917-a9fa-0bcb79de98b0"
+                alt="Delicious Chocolate">
+            <div>
+                <p><a href="#dark">1. Dark Chocolate</a>– High cocoa content (50%-90%), little to no milk, rich in
+                    antioxidants.</p>
+                <p><a href="#milk">2. Milk Chocolate</a> – Contains milk solids and sugar, making it sweeter and
+                    creamier.</p>
+                <p><a href="#white">3. White Chocolate</a>– Made from cocoa butter, milk, and sugar; no cocoa solids.
+                </p>
+                <p><a href="#ruby">4. Ruby Chocolate</a> – Naturally pink, made from special ruby cocoa beans with a
+                    fruity taste.</p>
+                <p><a href="#Unsweetened">5. Unsweetened Chocolate (Baking Chocolate)</a> – 100% cocoa, used for baking.
+                </p>
+                <p><a href="#Bittersweet">6. Bittersweet Chocolate</a> – Contains 65%-80% cocoa, less sugar than
+                    semisweet
+                    chocolate.</p>
+                <p><a href="#Semisweet">7. Semisweet Chocolate</a> – Around 50%-60% cocoa, commonly used in baking.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="dark">
+        <h3 style="color:#de8562;">Dark chocolate</h3>
+        <div class="content">
+            <div class="hexagon">
+                <img src="https://plus.unsplash.com/premium_photo-1670426501227-450cb0d92a16?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Hexagon Image">
+            </div>
+            <div class="steps">
+                <h3 style="color:#de8562;">Steps to preparation : -</h3>
+                <p><b>Step 1:</b>Display a piece of dark chocolate, preferably showing the percentage of cocoa on the
+                    packaging.</p>
+                <p><b>Step 2:</b> Highlight its deep brown color and firm texture.</p>
+                <p><b>Step 3:</b>Explain its high cocoa content (50%-90%) and minimal milk content.</p>
+                <p><b>Step 4:</b> Mention its health benefits due to rich antioxidants.</p>
+                <p><b>Step 5:</b>Allow a small taste sample to showcase its slightly bitter yet intense flavor.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3 id="milk" style="color:#de8562;">Milk Chocolate</h3>
+        <div class="content">
+            <div class="steps">
+                <h3 style="color:#de8562;">Steps to preparation : -</h3>
+                <p><b>Step 1:</b> Show a milk chocolate bar, cut into squares for easy viewing.</p>
+                <p><b>Step 2:</b> Describe its creamy texture and lighter brown color.</p>
+                <p><b>Step 3:</b> Explain that it contains milk solids and sugar, making it sweeter.</p>
+                <p><b>Step 4:</b> Compare it to dark chocolate in terms of smoothness and sweetness.</p>
+                <p><b>Step 5:</b> Offer a sample to highlight its melt-in-mouth experience.</p>
+            </div>
+            <div class="hexagon">
+                <img src="https://images.unsplash.com/photo-1627647227768-705244233b56?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Hexagon Image">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="white">
+        <h3 style="color:#de8562;">White chocolate</h3>
+        <div class="content">
+            <div class="hexagon">
+                <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Hexagon Image">
+            </div>
+            <div class="steps">
+                <h3 style="color:#de8562;">Steps to preparation : -</h3>
+                <p><b>Step 1:</b> Display a white chocolate bar to show its ivory or creamy color.</p>
+                <p><b>Step 2:</b> Explain that it is made from cocoa butter, milk, and sugar but lacks cocoa solids.</p>
+                <p><b>Step 3:</b> Highlight its smooth, rich, and sweet flavor profile.</p>
+                <p><b>Step 4:</b> Mention its common use in desserts and confections.</p>
+                <p><b>Step 5:</b> Provide a sample to showcase its buttery, milky taste.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ruby">
+        <h3 style="color:#de8562;">Ruby Chocolate</h3>
+        <div class="content">
+            <div class="steps">
+                <h3 style="color:#de8562;">Steps to preparation : -</h3>
+                <p><b>Step 1:</b> Present a ruby chocolate bar to highlight its natural pink color.</p>
+                <p><b>Step 2:</b> Explain that it is made from special ruby cocoa beans without added colorants.</p>
+                <p><b>Step 3:</b> Describe its fruity and slightly sour taste, different from other chocolates.</p>
+                <p><b>Step 4:</b> Mention its growing popularity in gourmet chocolates and desserts.</p>
+                <p><b>Step 5:</b> Offer a sample to let the audience experience its unique flavor.</p>
+            </div>
+            <div class="hexagon">
+                <img src="https://github.com/user-attachments/assets/5f5c14c2-8fe4-4b8f-9034-5be37972ecc3"
+                    alt="Hexagon Image">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="Unsweetened">
+        <h3 style="color:#de8562;">Unsweetened chocolate</h3>
+        <div class="content">
+            <div class="hexagon">
+                <img src="https://images.unsplash.com/photo-1483125796430-526962b9830b?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Hexagon Image">
+            </div>
+            <div class="steps">
+                <h3 style="color:#de8562;">Steps to preparation : -</h3>
+                <p><b>Step 1:</b> Show a bar of unsweetened chocolate, often labeled as 100% cocoa.</p>
+                <p> <b>Step 2: </b>Explain that it contains no sugar, making it very bitter.</p>
+                <p><b> Step 3: </b>Mention its primary use in baking, where sugar is added separately.</p>
+                <p> <b>Step 4: </b>Compare its texture and firmness to other chocolates.</p>
+                <p> <b>Step 5:</b> Demonstrate a small sample in a recipe rather than tasting directly due to its
+                    bitterness.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="Bittersweet">
+        <h3 style="color:#de8562;">Bittersweet Chocolate</h3>
+        <div class="content">
+            <div class="steps">
+                <h3 style="color:#de8562;">Steps to preparation : -</h3>
+                <p><b>Step 1:</b> Display a bittersweet chocolate bar with its cocoa percentage (65%-80%).</p>
+                <p> <b>Step 2: </b>Explain that it has less sugar than semisweet chocolate, making it slightly more
+                    intense.
+                </p>
+                <p> <b>Step 3: </b>Describe its balance between rich cocoa flavor and slight sweetness.</p>
+                <p> <b>Step 4: </b>Mention its common use in baking and gourmet chocolates.</p>
+                <p> <b>Step 5:</b> Offer a sample to demonstrate its deeper cocoa notes.</p>
+            </div>
+            <div class="hexagon">
+                <img src="https://plus.unsplash.com/premium_photo-1673138254120-d55ad6e5e2ed?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Hexagon Image">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="Semisweet">
+        <h3 style="color:#de8562;">Semisweet chocolate</h3>
+        <div class="content">
+            <div class="hexagon">
+                <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Hexagon Image">
+            </div>
+            <div class="steps">
+                <h3 style="color:#de8562;">Steps to preparation : -</h3>
+                <p><b>Step 1:</b> Show a semisweet chocolate bar or chocolate chips.</p>
+                <p> <b>Step 2: </b>Explain that it has around 50%-60% cocoa, making it slightly sweeter than bittersweet
+                    chocolate.</p>
+                <p> <b>Step 3:</b> Describe its smooth, mildly sweet, and versatile taste.</p>
+                <p> <b>Step 4: </b>Mention its common use in baking, such as in chocolate chip cookies.</p>
+                <p> <b>Step 5: </b>Provide a sample to highlight its balanced sweetness and cocoa flavor.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 ChocoLegacy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+
+</body>
+
+</html>

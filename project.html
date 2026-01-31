@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌟Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            box-shadow: inset 0 0 320px 5px rgba(75, 1, 85, 0.95);
+            z-index: 9999;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #09090a 0%, #070607 100%);
+            box-shadow: inset 200px 200px 300px rgba(43, 1, 60, 0.5);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .page-wrapper {
+            min-height: 100vh;
+            box-shadow: 0 0 80px 40px rgba(184, 4, 181, 0.9);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .responsive-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #mobile-menu {
+            transition: max-height 0.3s ease-out;
+        }
+
+        /* Responsive typography */
+        @media (max-width: 640px) {
+            .responsive-img {
+                max-height: 200px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            .btn-primary {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .responsive-img {
+                max-height: 300px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .btn-primary {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .responsive-img {
+                max-height: 400px;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            h3 {
+                font-size: 1.75rem;
+            }
+
+            .btn-primary {
+                padding: 1.25rem 2.5rem;
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <div class="page-wrapper">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <h1 class="text-2xl font-bold text-gray-800">Trinaini Koppoju</h1>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="index.html" class="nav-link text-gray-700 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#features" class="nav-link text-gray-700 px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#services" class="nav-link text-gray-700 px-3 py-2 text-sm font-medium">On Going</a>
+                    </div>
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-gray-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+                <a href="index.html" class="block px-4 py-2 text-gray-700">Home</a>
+                <a href="#features" class="block px-4 py-2 text-gray-700">Projects</a>
+                <a href="#services" class="block px-4 py-2 text-gray-700">On Going</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="gradient-bg min-h-screen flex items-center justify-center pt-16">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 fade-in">
+                    Where My Ideas <span class="block">Come Alive</span>
+                </h1>
+                <p class="text-lg md:text-2xl text-white opacity-90 mb-8 max-w-3xl mx-auto fade-in">
+                    Discover how I transform thoughts into impactful projects.
+                </p>
+                <button onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' });"
+                    class="btn-primary text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                    Get Started
+                </button>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-white/90">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Machine Learning Projects</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Everything you need to build scalable and accurate machine learning models.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <img src="https://ik.imagekit.io/sjipokfmw/image.png" alt="Chocolate Project"
+                            class="responsive-img mx-auto">
+                        <h3 class="text-2xl font-semibold text-gray-900 mt-4 mb-4">Customer Churn Prediction</h3>
+                        <p class="text-gray-600">The goal of this project is to predict whether a customer will churn or
+                            not based on their demographic details, usage behavior, subscription information, and
+                            payment history</p>
+                        <div class="flex justify-center mt-4">
+                            <a href="https://colab.research.google.com/drive/1llWgRrCA51ItRI6mfe5EQHD4NcALPyxN?usp=sharing"
+                                target="_blank">
+                                <button class="btn-primary text-white px-6 py-3 rounded-lg font-semibold">Have a
+                                    look</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <img src="https://ik.imagekit.io/sjipokfmw/image11.png?updatedAt=1766404463736"
+                            alt="Temperature Tool" class="responsive-img mx-auto">
+                        <h3 class="text-2xl font-semibold text-gray-900 mt-4 mb-4">Handwritten Digit Recognition using
+                            Neural Network</h3>
+                        <p class="text-gray-600">This project teaches a computer to look at an image of a handwritten
+                            number (0–9) and tell which number it is.</p>
+                        <div class="flex justify-center mt-4">
+                            <a href="https://colab.research.google.com/drive/10wVQ8EVguiyewkEnQ0FwEJE9JR-BtI6W?usp=sharing"
+                                target="_blank">
+                                <button class="btn-primary text-white px-6 py-3 rounded-lg font-semibold">Have a
+                                    look</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <img src="https://ik.imagekit.io/sjipokfmw/iris.png" alt="Animal Shelter"
+                            class="responsive-img mx-auto">
+                        <h3 class="text-2xl font-semibold text-gray-900 mt-4 mb-4">Iris Flower Species Classification
+                            using Decision Tree Algorithm”</h3>
+                        <p class="text-gray-600">This project uses a Decision Tree algorithm to classify iris flowers
+                            into different species based on their sepal and petal measurements.</p>
+                        <div class="flex justify-center mt-4">
+                            <a href="https://colab.research.google.com/drive/1gmzFpuBp4VwaITpDa5GDKpS5uF9fIqyA?usp=sharing"
+                                target="_blank">
+                                <button class="btn-primary text-white px-6 py-3 rounded-lg font-semibold">Have a
+                                    look</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <img src="https://ik.imagekit.io/sjipokfmw/animalSheltter.png" alt="Animal Shelter"
+                            class="responsive-img mx-auto">
+                        <h3 class="text-2xl font-semibold text-gray-900 mt-4 mb-4">Animal Shelter Outcome Predictor</h3>
+                        <p class="text-gray-600">ML project predicting shelter animal outcomes with 94% accuracy using
+                            scikit-learn and data preprocessing.</p>
+                        <div class="flex justify-center mt-4">
+                            <a href="pro4.html" target="_blank">
+                                <button class="btn-primary text-white px-6 py-3 rounded-lg font-semibold">Have a
+                                    look</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <img src="https://ik.imagekit.io/sjipokfmw/Fruit%20Classification.png" alt="Animal Shelter"
+                            class="responsive-img mx-auto">
+                        <h3 class="text-2xl font-semibold text-gray-900 mt-4 mb-4">Fruit Classification Using Machine
+                            Learning</h3>
+                        <p class="text-gray-600">The goal of this project is to classify different fruits based on image
+                            input.
+                            A user uploads a fruit image through an HTML webpage, and the Machine Learning model
+                            predicts the fruit type.</p>
+                        <div class="flex justify-center mt-4">
+                            <a href="https://drive.google.com/drive/folders/1HlI3-wUGvFf1JSQ0BW1vsDrnt36n2p2y?usp=drive_link"
+                                target="_blank">
+                                <button class="btn-primary text-white px-6 py-3 rounded-lg font-semibold">Have a
+                                    look</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <img src="https://ik.imagekit.io/sjipokfmw/EfficientNet.png" alt="Animal Shelter"
+                            class="responsive-img mx-auto">
+                        <h3 class="text-2xl font-semibold text-gray-900 mt-4 mb-4">Flower Image Classification using
+                            EfficientNet</h3>
+                        <p class="text-gray-600">The goal of this project is to understand how transfer learning and
+                            fine-tuning can improve image classification performance with limited data.</p>
+                        <div class="flex justify-center mt-4">
+                            <a href="https://www.kaggle.com/code/trinainikoppoju020/efficientnet-day-6" target="_blank">
+                                <button class="btn-primary text-white px-6 py-3 rounded-lg font-semibold">Have a
+                                    look</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-20 bg-white/90">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Front-End Projects</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Everything you need to build modern, responsive websites with ease
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <img src="https://ik.imagekit.io/sjipokfmw/chocoimg1.png?updatedAt=1760507324901"
+                            alt="Chocolate Project" class="responsive-img mx-auto">
+                        <h3 class="text-2xl font-semibold text-gray-900 mt-4 mb-4">Choco Webpage Project</h3>
+                        <p class="text-gray-600">A visually appealing chocolate brand webpage with interactive UI and
+                            animations, built with responsive design.</p>
+                        <div class="flex justify-center mt-4">
+                            <a href="https://koppojutrinaini.github.io/Choco/" target="_blank">
+                                <button class="btn-primary text-white px-6 py-3 rounded-lg font-semibold">Have a
+                                    look</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <img src="https://ik.imagekit.io/sjipokfmw/tempimg1.png?updatedAt=1760507419252"
+                            alt="Temperature Tool" class="responsive-img mx-auto">
+                        <h3 class="text-2xl font-semibold text-gray-900 mt-4 mb-4">Temperature Converter Tool</h3>
+                        <p class="text-gray-600">Convert values between Celsius, Fahrenheit, and Kelvin instantly using
+                            a clean UI built with HTML, CSS, and JS.</p>
+                        <div class="flex justify-center mt-4">
+                            <a href="https://koppojutrinaini.github.io/TempConvert-/" target="_blank">
+                                <button class="btn-primary text-white px-6 py-3 rounded-lg font-semibold">Have a
+                                    look</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-gray-50/90">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold text-gray-900 mb-8">On Going</h2>
+
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Career Craft AI</h3>
+                    <p class="text-gray-600 max-w-2xl mx-auto">An AI-driven career companion that generates ATS-friendly
+                        resumes, suggests jobs, and creates personalized learning roadmaps using React, Node.js,
+                        MongoDB, and OpenAI GPT.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Real-Time Voice Biometric Authentication
+                        System Using Deep Learning</h3>
+                    <p class="text-gray-600 max-w-2xl mx-auto">This project implements a real-time voice biometric
+                        authentication system that verifies user identity using live browser-recorded voice and deep
+                        speaker embeddings. The system provides secure enrollment and login with practical web-based
+                        deployment suitable for real-world applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="bg-gray-900 text-white pt-16 pb-10">
+            <div
+                class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">About</h3>
+                    <p class="text-gray-400 text-sm">I’m Trinaini Koppoju, passionate about blending AI, web
+                        development, and design to create innovative digital experiences.</p>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white">Home</a></li>
+                        <li><a href="#features" class="hover:text-white">Projects</a></li>
+                        <li><a href="#services" class="hover:text-white">On Going</a></li>
+                        <li><a href="textme.html" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Projects</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Career Craft AI</li>
+                        <li>Heart Disease Prediction</li>
+                        <li>Temperature Converter</li>
+                        <li>Chocolate Webpage</li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+                                class="hover:text-white">Email</a></li>
+                        <li>LinkedIn: linkedin.com/in/trinaini</li>
+                        <li>GitHub: github.com/trinaini</li>
+                        <li>India</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="mt-16 text-center border-t border-gray-700 pt-8">
+                <h3 class="text-lg font-semibold mb-2">✨ Keep Creating, Keep Growing</h3>
+                <p class="text-gray-400 text-sm max-w-xl mx-auto">Every project is a new chapter in learning, and every
+                    idea has the power to make an impact. Let’s innovate together and shape the digital world with
+                    creativity and code.</p>
+                <p class="text-gray-500 text-xs mt-6">&copy; 2025 Trinaini Koppoju. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- JavaScript -->
+        <script>
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        </script>
+    </div>
+</body>
+
+</html>

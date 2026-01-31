@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portfolio website of Trinaini Koppoju, a Data Analyst turning data into visual stories.">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #210629;
+      color: #fff;
+      padding: 10px;
+      box-shadow:
+        inset 20px 50px 100px #0c0c0c,
+        inset 20px 50px 100px #0c0c0c;
+    }
+
+
+    header {
+      background: #1b002d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      box-shadow: 0px 0px 30px #000000;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: #ccc;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: #ffdd00;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 100px 50px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h2 {
+      font-size: 46px;
+      margin-bottom: 18px;
+    }
+
+    .hero-text span {
+      color: #ffdd00;
+    }
+
+    .hero-text p {
+      font-size: 26px;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    .hero-buttons button {
+      margin-right: 10px;
+    }
+
+    .hero-image img {
+      width: 550px;
+      border-radius: 20px;
+    }
+
+    .btn-primary {
+      background: #ffdd00;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0px 0px 200px #000000;
+    }
+
+    .btn-primary:hover {
+      background: #e6c200;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #ffdd00;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: #ffdd00;
+      color: #000;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      color: #ffdd00;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    section {
+      padding: 50px 30px;
+      text-align: center;
+    }
+
+    .about p {
+
+      text-align: center;
+      padding: 50px 50px;
+      font-size: 25px;
+      margin-bottom: 70px;
+    }
+
+    /* Circle Images for About */
+    .about-circles {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .about-circles img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .about-circles img:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      background: #1b002d;
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      box-shadow: 0px 0px 20px #000000;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      /* Centers the container horizontally */
+      overflow: hidden;
+      position: relative;
+      padding: 0 20px;
+      /* Optional: adds side padding on small screens */
+    }
+
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 420px;
+      margin-left: 20px;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 16px 12px 40px;
+      background: #eee;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    .search-bar svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      opacity: 0.6;
+    }
+
+    .cards-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      width: 100%;
+
+    }
+
+    .cards {
+      display: flex;
+      justify-content: flex-start;
+      /* Changed from center */
+      transition: transform 0.5s ease-in-out;
+      gap: 20px;
+      padding-bottom: 10px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 20px;
+      scrollbar-width: none;
+    }
+
+
+    .cards::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #5a277b, #611594);
+      border-radius: 20px;
+      width: 400px;
+      height: 400px;
+      padding: 60px 20px 20px 20px;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      position: relative;
+      overflow: visible;
+      margin-top: 260px;
+      margin-left: 10px;
+      margin-bottom: 20px;
+      margin-right: 10px;
+      box-shadow: 0px 0px 300px #000000;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .card p {
+      margin-bottom: 5px;
+    }
+
+
+    .card img {
+      position: absolute;
+      top: -90px;
+      left: 50%;
+      transform: translateX(-50%) translateY(0);
+      width: 250px;
+      height: 280px;
+      object-fit: contain;
+      z-index: 2;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .card:hover img {
+      transform: translateX(-50%) translateY(-130px) scale(1.05);
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 20px;
+    }
+
+    .nav-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      background: #333;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .nav-btn:disabled {
+      background: #888;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: #555;
+    }
+
+
+    .btn-watch {
+      margin-top: 10px;
+      background: #ffdd00;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+
+    .btn-watch:hover {
+      background: #cecdc8;
+    }
+
+    @media (max-width: 768px) {
+      .cards-container {
+        justify-content: flex-start;
+      }
+
+      .card {
+        width: 80%;
+        /* height: 30%; */
+        max-width: 300px;
+        margin: 280px auto 20px auto;
+      }
+
+      .card img {
+        width: 150px;
+        height: 200px;
+        top: -90px;
+      }
+
+      .card:hover img {
+        transform: translateX(-50%) translateY(-70px) scale(1.05);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-image img {
+        margin-top: 20px;
+        width: 90%;
+      }
+
+      .card {
+        width: 90%;
+        max-width: 300px;
+        margin: 150px auto 20px auto;
+        padding: 40px 20px 20px 20px;
+      }
+
+      .card img {
+        width: 150px;
+        height: 180px;
+        top: -60px;
+      }
+
+      .card h2 {
+        font-size: 1.2rem;
+      }
+
+      .card p {
+        font-size: 1.2rem;
+      }
+
+      .about-circles {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card:hover img {
+        transform: translateX(-50%) translateY(-70px) scale(1.05);
+      }
+
+      .btn-watch {
+
+        width: 50%;
+        padding: 12px 0;
+        font-size: 1rem;
+      }
+
+    }
+
+    /* ===== Responsive Header ===== */
+    .main-header {
+      background: #1b002d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      box-shadow: 0px 0px 30px #000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffdd00;
+    }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #ffdd00;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #1b002d;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 0;
+        display: none;
+        box-shadow: 0px 10px 30px #000;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="main-header">
+    <h1 class="logo">Trinaini Koppoju</h1>
+
+    <div class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="project.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="internships.html">Internships</a>
+      <a href="certificates.html">Certifications</a>
+      <a href="textme.html">Contact</a>
+    </nav>
+  </header>
+
+
+
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h2>Hi! I’m Trinaini Koppoju <br /><span>Data Analyst</span></h2>
+      <p>Turning data into insights and visual stories.</p>
+      <div class="hero-buttons">
+        <a class="btn-primary" href="textme.html">Contact Me</a>
+        <button class="btn-secondary" onclick="location.href='https://ik.imagekit.io/sjipokfmw/Resume-Main.pdf'">
+  Download CV</button>
+
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://res.cloudinary.com/dqtoscgbi/image/upload/v1760272992/profile_hvqnu7.png"
+        alt="Trinaini Koppoju smiling" />
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h1>About me</h1>
+    <p>
+      My name is Trinaini Koppoju. I am a passionate and curious learner with a strong interest in technology
+      and data. I enjoy exploring new tools, building projects, and solving problems through coding. I always
+      look forward to learning new skills, working on innovative ideas, and growing both personally and
+      professionally.
+    </p>
+
+    <!-- Disney-style cards replacing about-circles -->
+    <div class="container">
+      <div class="header">
+        <h1>My Works</h1>
+        <div class="search-bar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="search" placeholder="Search characters..." />
+        </div>
+      </div>
+
+      <div class="cards-container">
+        <div class="cards" id="cardList">
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button class="nav-btn" id="prev">Prev</button>
+        <button class="nav-btn" id="next">Next</button>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    const characters = [
+      {
+        name: '🌟Projects',
+        movie: 'Explore how I transform concepts into functional and creative solutions',
+        img: 'https://ik.imagekit.io/sjipokfmw/487927267-e92b4579-3573-4c2f-8c09-9a2307c8ee7f.png?updatedAt=1760532977565',
+        colors: ['#2196F3', '#3F51B5'],  // Kept for reference, but not used dynamically
+        link: 'project.html'
+      },
+      {
+        name: '📜 Certifications',
+        movie: 'Discover the credentials that reflect my continuous learning journey',
+        img: 'https://ik.imagekit.io/sjipokfmw/487927254-11cd1962-916f-42dd-9a04-90c73022abc8.png?updatedAt=1760532976973',
+        colors: ['#2196F3', '#3F51B5'],
+        link: 'certificates.html'
+      },
+      {
+        name: '💼Internships',
+        movie: 'See how I applied my skills in real-world industry environments',
+        img: 'https://ik.imagekit.io/sjipokfmw/487927228-94c94890-9c40-4986-994f-824ba7d4101c.png?updatedAt=1760532977750',
+        colors: ['#FF5722', '#E91E63'],
+        link: '#internships'
+      },
+      {
+        name: '🛠️ Skills',
+        movie: 'A showcase of my technical strengths and problem-solving abilities',
+        img: 'https://ik.imagekit.io/sjipokfmw/487927277-ae3ff22b-5f30-4404-84ab-0ae3315b9210.png?updatedAt=1760532978085',
+        colors: ['#FF5722', '#E91E63'],
+        link: 'skills.html'
+      },
+    ];
+
+    const cardList = document.getElementById('cardList');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+
+    function renderCards(data) {
+      cardList.innerHTML = '';
+      data.forEach(({ name, movie, img, link }) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.background = `linear-gradient(135deg, #5a277b, #611594)`;  // Static gradient
+
+        card.innerHTML = `
+                <img src="${img}" alt="${name}" />
+                <h2>${name}</h2>
+                <p>${movie}</p>
+                <button class="btn-watch" onclick="location.href='${link}'">Watch Now</button>
+            `;
+
+        cardList.appendChild(card);
+      });
+    }
+
+    function updateButtons() {
+      prevBtn.disabled = cardList.scrollLeft <= 0;
+      nextBtn.disabled = cardList.scrollLeft + cardList.offsetWidth >= cardList.scrollWidth - 5;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      cardList.scrollBy({ left: 270, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      cardList.scrollBy({ left: -270, behavior: 'smooth' });
+    });
+
+    cardList.addEventListener('scroll', updateButtons);
+
+    document.getElementById('search').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      const filtered = characters.filter(
+        (c) => c.name.toLowerCase().includes(q) || c.movie.toLowerCase().includes(q)
+      );
+      renderCards(filtered);
+    });
+
+    renderCards(characters);
+    updateButtons();
+  </script>
+
+
+  <footer style="background:#1b002d; box-shadow:0px 0px 25px #000000; margin-top:60px;">
+    <div style="
+    max-width:1200px;
+    margin:auto;
+    padding:50px 30px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:40px;
+    text-align:left;
+  ">
+
+      <!-- About -->
+      <div>
+        <h3 style="color:#ffdd00; margin-bottom:15px;">About Me</h3>
+        <p style="color:#ccc; line-height:1.6; font-size:15px;">
+          I’m <strong>Trinaini Koppoju</strong>, a passionate Data Analyst with strong
+          interest in Machine Learning and Web Development. I love transforming raw
+          data into meaningful insights and building impactful digital solutions.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 style="color:#ffdd00; margin-bottom:15px;">Quick Links</h3>
+        <ul style="list-style:none; padding:0; line-height:2;">
+          <li><a href="index.html" style="color:#ccc; text-decoration:none;">Home</a></li>
+          <li><a href="project.html" style="color:#ccc; text-decoration:none;">Projects</a></li>
+          <li><a href="skills.html" style="color:#ccc; text-decoration:none;">Skills</a></li>
+          <li><a href="internships.html" style="color:#ccc; text-decoration:none;">Internships</a></li>
+          <li><a href="certificates.html" style="color:#ccc; text-decoration:none;">Certifications</a></li>
+          <li><a href="textme.html" style="color:#ccc; text-decoration:none;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 style="color:#ffdd00; margin-bottom:15px;">Contact</h3>
+        <p style="color:#ccc; margin-bottom:8px;">
+          <strong>Email:</strong> koppojutrinaini@gmail.com
+        </p>
+        <p style="color:#ccc; margin-bottom:8px;">
+          <strong>Phone:</strong> +91 8247457887
+        </p>
+        <p style="color:#ccc;">
+          <strong>Location:</strong> Tadepalligudem, Andhra Pradesh, India
+        </p>
+      </div>
+
+      <!-- Social / CTA -->
+      <div>
+        <h3 style="color:#ffdd00; margin-bottom:15px;">Let’s Connect</h3>
+        <p style="color:#ccc; font-size:15px; margin-bottom:15px;">
+          Open to internships, projects, and entry-level opportunities.
+        </p>
+        <div class="social-icons" style="justify-content:flex-start;">
+          <a href="https://www.linkedin.com/in/trinaini-koppoju-265717248/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/koppojuTrinaini" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div style="
+    border-top:1px solid #2e0047;
+    text-align:center;
+    padding:15px;
+    color:#aaa;
+    font-size:14px;
+  ">
+      © 2025 <strong>Trinaini Koppoju</strong> · Data Analyst · All Rights Reserved
+    </div>
+  </footer>
+
+</body>
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+</script>
+
+</html>

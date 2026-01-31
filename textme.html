@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me | Trinaini Koppoju</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fdfbff, #f3ecff);
+      color: #2b2b2b;
+      overflow-x: hidden;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      background: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 22px;
+      color: #6a1b9a;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #6a1b9a;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #6a1b9a;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        display: none;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+
+      nav.show {
+        display: flex;
+      }
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 80px 40px;
+      gap: 40px;
+    }
+
+    .hero-text h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #6a1b9a;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 25px;
+      line-height: 1.6;
+      animation: fadeInUp 1.3s ease;
+    }
+
+    .hero-text a {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #6a1b9a;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      animation: fadeInUp 1.6s ease;
+    }
+
+    .hero-text a:hover {
+      background: #4a148c;
+    }
+
+    .hero-img img {
+      width: 100%;
+      max-width: 420px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-img {
+        order: -1;
+      }
+    }
+
+    /* ================= CONTACT ================= */
+    .contact-section {
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #6a1b9a;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .contact-card i {
+      font-size: 32px;
+      color: #6a1b9a;
+      margin-bottom: 15px;
+    }
+
+    .contact-card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: linear-gradient(135deg, #ede7f6, #f3e5f5);
+      padding: 70px 40px 20px;
+      margin-top: 80px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+    }
+
+    footer h3 {
+      color: #6a1b9a;
+      margin-bottom: 15px;
+    }
+
+    footer p, footer a {
+      color: #555;
+      font-size: 14px;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+
+    .social-icons a {
+      font-size: 22px;
+      margin-right: 12px;
+      color: #6a1b9a;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 15px;
+      border-top: 1px solid #d1c4e9;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Trinaini Koppoju</h1>
+  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="project.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="internships.html">Internships</a>
+    <a href="certificates.html">Certifications</a>
+    <a href="textme.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h2>Let’s Build Something Meaningful...</h2>
+    <p>
+      Whether you’re a recruiter, collaborator, or just someone curious —
+      I’d love to connect and explore opportunities together.
+    </p>
+    <a href="#contact">Say Hello 👋</a>
+  </div>
+  <div class="hero-img">
+    <img src="https://illustrations.popsy.co/purple/communication.svg" alt="Contact illustration">
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <h2>Ways to Reach Me</h2>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <p>koppojutrinaini@gmail.com</p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fas fa-phone"></i>
+      <p>+91 8247457887</p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fas fa-map-marker-alt"></i>
+      <p>Tadepalligudem, Andhra Pradesh, India</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h3>About Me</h3>
+      <p>
+        I’m Trinaini Koppoju — a Data Analyst, ML enthusiast, and web developer
+        who loves turning ideas into impactful digital experiences.
+      </p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="index.html">Home</a></p>
+      <p><a href="project.html">Projects</a></p>
+      <p><a href="skills.html">Skills</a></p>
+      <p><a href="internships.html">Internships</a></p>
+    </div>
+
+    <div>
+      <h3>Connect</h3>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/trinaini-koppoju-265717248/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Trinaini Koppoju · Designed with care ✨
+  </div>
+</footer>
+
+<script>
+  document.getElementById("menuToggle").onclick = () => {
+    document.getElementById("navMenu").classList.toggle("show");
+  };
+</script>
+
+</body>
+</html>
